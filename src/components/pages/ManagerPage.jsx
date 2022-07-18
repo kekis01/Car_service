@@ -1,5 +1,6 @@
 import React from "react";
 import './ManagerPage.css';
+import { Link } from "react-router-dom"
 
 function ManagerPage(){
     return (
