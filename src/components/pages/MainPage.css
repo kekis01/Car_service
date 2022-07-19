@@ -1,0 +1,7 @@
+.wrapper{
+    position: relative;
+    min-height: 100%;
+    dispay:flex;
+    flex-direction: column;
+    min-height: 100%;
+}

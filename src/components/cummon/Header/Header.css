@@ -1,0 +1,33 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    max-width: 1520px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.left_line{
+    margin-right: auto;
+    margin-left: 0;
+    width: 622px;
+    height: 1px;
+    background-color: #365CFF;
+}
+
+.right_line{
+    margin-right: auto;
+    margin-left: 0;
+    width: 602px;
+    height: 1px;
+    background-color: #365CFF;
+}
+
+.logo{
+    background: url("./Logo.png");
+    width: 226px;
+    height: 106px;
+    margin-right: 20px;
+}
