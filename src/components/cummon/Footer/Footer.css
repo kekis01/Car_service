@@ -3,6 +3,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
+    cursor: default;
 }
 
 .footer_inner{
