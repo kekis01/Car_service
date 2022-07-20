@@ -1,7 +1,94 @@
 .wrapper{
     position: relative;
     min-height: 100%;
-    dispay:flex;
+    display: flex;
     flex-direction: column;
     min-height: 100%;
+}
+
+.banner {
+    background: url("./Banner.png");
+    margin-left: auto;
+    margin-right: auto;
+    width: 1520px;
+    height: 594px;
+    margin-bottom: 74px;
+}
+
+.banner_text_display {
+    display: flex;
+    width: 725px;
+    height: 252px;
+    margin-top: 90px;
+    margin-left: 65px;
+}
+
+.banner_text {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 84px;
+    color: #FFFFFF;
+}
+
+.buttons_display {
+    display: flex;
+    flex-direction: row;
+    width: 725px;
+    height: 200px;
+    margin-left: 65px;
+    align-items: flex-start;
+}
+
+.sign_button {
+    background: rgba(254, 254, 254, 0.79);
+    border: 3px solid #365CFF;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.sign_text {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 20px 70px;
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: #365CFF;
+}
+
+.sign_button:hover {
+    background: rgba(254, 254, 254, 0.99);
+    cursor: pointer;
+}
+
+.disable_button {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+    margin-top: 110px;
+    margin-left: 50px;
+}
+
+.disable_button:hover {
+    color: #365CFF;
+    border-bottom: 1px solid #365CFF;
+    cursor: pointer;
+}
+
+.link_fix {
+    text-decoration: none;
 }

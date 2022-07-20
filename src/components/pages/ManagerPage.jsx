@@ -1,11 +1,12 @@
 import React from "react";
 import './ManagerPage.css';
+import HeaderManager from "../cummon/Header/HeaderManager";
 import { Link } from "react-router-dom"
 
-function ManagerPage(){
+function ManagerPage() {
     return (
         <>
-            <h1>Менеджер</h1>
+            <HeaderManager />
         </>
     )
 }

@@ -6,7 +6,7 @@
     margin-right: auto;
     margin-left: auto;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .left_line{
@@ -20,7 +20,7 @@
 .right_line{
     margin-right: auto;
     margin-left: 0;
-    width: 602px;
+    width: 622px;
     height: 1px;
     background-color: #365CFF;
 }
@@ -29,5 +29,6 @@
     background: url("./Logo.png");
     width: 226px;
     height: 106px;
-    margin-right: 20px;
+    margin-right: 25px;
+    margin-left: 25px;
 }
