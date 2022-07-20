@@ -15,10 +15,6 @@ const options1 =[
         label: '10:00'
     },
     {
-        value: 'time1',
-        label: '10:00'
-    },
-    {
         value: 'time2',
         label: '11:00'
     },

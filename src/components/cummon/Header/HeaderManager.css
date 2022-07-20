@@ -7,7 +7,6 @@
     margin-left: auto;
     align-items: center;
     margin-bottom: 20px;
-    border: 1px solid red;
 }
 
 .left_line{
@@ -48,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
+
 }
 
 .order_style{
@@ -70,6 +69,7 @@
     box-shadow: 0px 8px 24px rgba(129, 135, 189, 0.15);
     width: 260px;
     cursor: default;
+    padding-top: 17px;
 }
 
 .title_order_table{
@@ -86,26 +86,31 @@
 .subtitle_order_table{
     margin-left: 15px;
     margin-top: 5px;
-    font-family: 'Montserrat';
+    font-family: 'Exo 2';
     font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 22px;
-    color: #000;
+    /* identical to box height */
+
+
+    color: #000000;
+
     width: 160px;
     padding-bottom: 5px;
 }
 
 .name_table_titlle{
-    font-family: 'Montserrat';
+    font-family: 'Exo 2';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 22px;
     /* identical to box height */
 
 
-    color: #FF5E06;
+    color: #000000;
+
     width: 140px;
 }
 
@@ -121,8 +126,9 @@
     display: flex;
     justify-content: space-between;
     width: 80px;
-    color: red;
+    color: #365CFF;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .exit_button_table::before{
@@ -131,23 +137,28 @@
     content: "";
     height: 1px;
     width: 0;
-    background-color: red;
+    background-color: #365CFF;
     left: 0;
-    bottom: 1px;
+    bottom: -3px;
     transition: 0.4s;
 }
 
 .exit_button_table:hover:before{
-    width: 103%;
+    width: 85%;
 }
 
 
 .exit_button_table a{
     text-decoration: none;
     color: red;
-    font-family: 'Montserrat';
+    font-family: 'Exo 2';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 22px;
+    /* identical to box height */
+
+
+    color: #365CFF;
+
 }

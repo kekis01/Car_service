@@ -1,4 +1,4 @@
-.header{
+.header_user{
     display: flex;
     flex-direction: row;
     max-width: 1520px;
@@ -9,7 +9,7 @@
     margin-bottom: 20px;
 }
 
-.left_line{
+.left_line_user{
     margin-right: auto;
     margin-left: 0;
     width: 622px;
@@ -17,7 +17,7 @@
     background-color: #365CFF;
 }
 
-.right_line{
+.right_line_user{
     margin-right: auto;
     margin-left: 0;
     width: 622px;
@@ -25,7 +25,7 @@
     background-color: #365CFF;
 }
 
-.logo{
+.logo_user{
     background: url("./Logo.png");
     width: 226px;
     height: 106px;
