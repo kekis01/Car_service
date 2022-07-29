@@ -12,48 +12,18 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Axios from "axios";
+import {useEffect} from "react";
+import {useState} from "react";
+import './table.css';
 
-function createData(
-    name: string,
-    phone: string,
-    time: string,
-    car: string,
-    car_number: string,
-    place: string,
-    status: string,
-) {
-    return {
-        name,
-        phone,
-        time,
-        car,
-        car_number,
-        place,
-        status,
-        history: [
-            {
-                tire_change: '+',
-                wheel_change: '-',
-                removal_installation: '+',
-                washing: '+',
-                dismantling:'-',
-                assembly:'-',
-                balance: '-',
-                pressure: '+',
-                correction:'-',
-                radius: '18"'
-             },
-        ],
-    };
-}
-
-function Row(props: { row: ReturnType<typeof createData> }) {
+function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
 
     return (
         <React.Fragment>
-            <TableRow sx={{ '& > *': { borderBottom: 'unset'} }}>
+            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                 <TableCell>
                     <IconButton
                         aria-label="expand row"
@@ -63,57 +33,51 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row" sx={{fontFamily: 'Exo 2', color:'#88898A' }}>
+                <TableCell component="th" scope="row">
                     {row.name}
                 </TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}}>{row.phone}</TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#88898A' }}>{row.time}</TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#88898A' }}>{row.car}</TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500' }}>{row.car_number}</TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#88898A' }}>{row.place}</TableCell>
-                <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#88898A' }}>{row.status}</TableCell>
+                <TableCell align="center">{row.number}</TableCell>
+                <TableCell align="center">{row.car}</TableCell>
+                <TableCell align="center">{row.carNumber}</TableCell>
+                <TableCell align="center"> <button className="order_button_table"> Начать заказ </button> </TableCell>
             </TableRow>
             <TableRow>
-                <TableCell style={{ paddingBottom: 0, paddingTop: 0,}} colSpan={8}>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <Typography variant="h6" gutterBottom component="div" sx={{fontFamily: 'Exo 2',color:'#00000' }}>
-                                Информация о заказе
+                            <Typography variant="h6" gutterBottom component="div">
+                                Объем работы
                             </Typography>
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}}>Замена шин</TableCell>
-                                        <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}}>Замена колес</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Снятие / установка</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Техническая мойка</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Разборка</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Сборка</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Балансировка</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Проверка давления</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Правка дисков</TableCell>
-                                        <TableCell align="center"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'500'}} >Радиус</TableCell>
+                                        <TableCell align="center">Замена шин</TableCell>
+                                        <TableCell align="center">Замена колес</TableCell>
+                                        <TableCell align="center">Снятие / установка</TableCell>
+                                        <TableCell align="center">Техническая мойка</TableCell>
+                                        <TableCell align="center">Разборка</TableCell>
+                                        <TableCell align="center">Сборка</TableCell>
+                                        <TableCell align="center">Балансировка</TableCell>
+                                        <TableCell align="center">Проверка давления</TableCell>
+                                        <TableCell align="center">Правка дисков</TableCell>
+                                        <TableCell align="center">Радиус</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow align="center" key={historyRow.tire_change}>
-                                            <TableCell align="center" component="th" scope="row"  sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>
-                                                {historyRow.tire_change}
+                                        <TableRow>
+                                            <TableCell component="th" scope="row" align="center">
+                                                <div className="table_style_status"> {row.tires}</div>
                                             </TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.wheel_change}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.removal_installation}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>
-                                                {historyRow.washing}
-                                            </TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.dismantling}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.assembly}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.balance}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.pressure}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.correction}</TableCell>
-                                            <TableCell align="center" sx={{fontFamily: 'Exo 2',color:'#000000',fontWeight:'400'}}>{historyRow.radius}</TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.wheels}</div> </TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work1}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work2}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work3}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work4}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work5}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work6}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work7}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.radius}</div></TableCell>
                                         </TableRow>
-                                    ))}
                                 </TableBody>
                             </Table>
                         </Box>
@@ -124,32 +88,38 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     );
 }
 
-const rows = [
-    createData('Иванов Иван Иванович', '89121133665', '03.09.2022    15:01', 'ВАЗ 2110', 'В 200 КХ 196', '1','Ожидает'),
-    createData('Кулибинов Сергей Федотович', '+79128866332', '03.09.2022    15:01', 'AUDI Q7', 'Е 222 КХ 196', '2','В работе'),
-    createData('Семенов Сергей Сергеевич', '89121133665', '03.09.2022    15:01', 'BMW X3', 'У 300 ВК 196', '3','Готово'),
-    createData('Калинин Дмитрий Антонович', '+79128866332', '03.09.2022    15:01', 'TOYOTA LC', 'А 200 АА 196', '4','В работе'),
-    createData('Денисов Лука Григорьевич', '89121133665', '03.09.2022    15:01', 'MERCEDEC SLC', 'В 777 ОР 196', '5','Ожидает'),
-];
+
 
 export default function CollapsibleTable() {
+
+    const [employeeList,setEmployeeList] = useState([])
+
+    const getFetch = async () => {
+        Axios.get("http://localhost:3001/employees").then((response) => {
+            setEmployeeList(response.data)
+        })
+    };
+
+    useEffect(()  => {
+            getFetch()
+        }
+    );
+
     return (
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        <TableCell sx={{fontFamily: 'Exo 2' }}>Имя клиента</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Номер телефона</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Дата и время</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Автомобиль</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Гос.номер</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Место</TableCell>
-                        <TableCell align="center" sx={{fontFamily: 'Exo 2' }}>Статус заказа</TableCell>
+                        <TableCell>Имя клиента</TableCell>
+                        <TableCell align="center">Номер телефона</TableCell>
+                        <TableCell align="center">Автомобиль</TableCell>
+                        <TableCell align="center">Гос. номер</TableCell>
+                        <TableCell align="center">Изменить статус</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {employeeList.map((row) => (
                         <Row key={row.name} row={row} />
                     ))}
                 </TableBody>
@@ -157,3 +127,4 @@ export default function CollapsibleTable() {
         </TableContainer>
     );
 }
+

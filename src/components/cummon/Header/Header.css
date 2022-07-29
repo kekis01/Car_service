@@ -7,20 +7,35 @@
     margin-left: auto;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 .left_line_user{
-    margin-right: auto;
-    margin-left: 0;
     width: 622px;
     height: 1px;
     background-color: #365CFF;
 }
 
+.header_account{
+    margin: 0;
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    color: #365CFF;
+
+    text-decoration: none;
+}
+
+.header_account:hover{
+    font-weight: 600;
+}
+
 .right_line_user{
-    margin-right: auto;
-    margin-left: 0;
-    width: 622px;
+    width: 500px;
     height: 1px;
     background-color: #365CFF;
 }
@@ -29,6 +44,10 @@
     background: url("./Logo.png");
     width: 226px;
     height: 106px;
-    margin-right: 25px;
-    margin-left: 25px;
+}
+
+.right_line_user_end{
+    width: 60px;
+    height: 1px;
+    background-color: #365CFF;
 }
