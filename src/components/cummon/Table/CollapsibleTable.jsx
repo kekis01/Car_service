@@ -15,7 +15,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Axios from "axios";
 import {useEffect} from "react";
 import {useState} from "react";
-
+import './table.css';
 
 function Row(props) {
     const { row } = props;
@@ -36,34 +36,47 @@ function Row(props) {
                 <TableCell component="th" scope="row">
                     {row.name}
                 </TableCell>
-                <TableCell align="right">{row.number}</TableCell>
-                <TableCell align="right">{row.car}</TableCell>
-                <TableCell align="right">{row.carNumber}</TableCell>
-                <TableCell align="right"> <button className="order_button_table"> Начать заказ </button> </TableCell>
+                <TableCell align="center">{row.number}</TableCell>
+                <TableCell align="center">{row.car}</TableCell>
+                <TableCell align="center">{row.carNumber}</TableCell>
+                <TableCell align="center"> <button className="order_button_table"> Начать заказ </button> </TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <Typography variant="h6" gutterBottom component="div">
-                                History
+                                Объем работы
                             </Typography>
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell align="right">Date</TableCell>
-                                        <TableCell align="right">Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell align="center">Замена шин</TableCell>
+                                        <TableCell align="center">Замена колес</TableCell>
+                                        <TableCell align="center">Снятие / установка</TableCell>
+                                        <TableCell align="center">Техническая мойка</TableCell>
+                                        <TableCell align="center">Разборка</TableCell>
+                                        <TableCell align="center">Сборка</TableCell>
+                                        <TableCell align="center">Балансировка</TableCell>
+                                        <TableCell align="center">Проверка давления</TableCell>
+                                        <TableCell align="center">Правка дисков</TableCell>
+                                        <TableCell align="center">Радиус</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                        <TableRow key={row.date}>
-                                            <TableCell component="th" scope="row">
-                                                {row.date}
+                                        <TableRow>
+                                            <TableCell component="th" scope="row" align="center">
+                                                <div className="table_style_status"> {row.tires}</div>
                                             </TableCell>
-                                            <TableCell>{row.customerId}</TableCell>
-                                            <TableCell align="right">{row.amount}</TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.wheels}</div> </TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work1}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work2}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work3}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work4}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work5}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work6}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.work7}</div></TableCell>
+                                            <TableCell align="center"> <div className="table_style_status"> {row.radius}</div></TableCell>
                                         </TableRow>
                                 </TableBody>
                             </Table>
@@ -98,11 +111,11 @@ export default function CollapsibleTable() {
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        <TableCell>Имя клиента</TableCell>
+                        <TableCell align="center">Номер телефона</TableCell>
+                        <TableCell align="center">Автомобиль</TableCell>
+                        <TableCell align="center">Гос. номер</TableCell>
+                        <TableCell align="center">Изменить статус</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

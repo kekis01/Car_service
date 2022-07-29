@@ -281,6 +281,8 @@ function OrderPage(){
             time4:currentTime4,
             time5:currentTime5,
             radius:currentRadius6,
+        }).then(()=>{
+            console.log("success");
         })
     }
 
@@ -309,42 +311,42 @@ function OrderPage(){
                                 <div className="first_work">
                                     <div className="subtitle_order">Комплекс работ</div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "wheel1"  onChange={(event)=>{setTires(event.target.value);}}/>
+                                        <input type="checkbox" id = "wheel1"  value={"Замена шин"} onChange={(event)=>{setTires(event.target.value);}}/>
                                         <label htmlFor="wheel1"  className="work_name_order"> Замена шин </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "wheel2" onChange={(event)=>{setWheels(event.target.value);}}/>
+                                        <input type="checkbox" id = "wheel2" value={"Замена колес"} onChange={(event)=>{setWheels(event.target.value);}}/>
                                         <label htmlFor="wheel2"  className="work_name_order"> Замена колес </label>
                                     </div>
                                 </div>
                                 <div className="second_work">
                                     <div className="subtitle_order">Услуги</div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service1"  onChange={(event)=>{setWork1(event.target.value);}}/>
+                                        <input type="checkbox" id = "service1" value={"Снятие / установка"} onChange={(event)=>{setWork1(event.target.value);}}/>
                                         <label htmlFor="service1"  className="work_name_order"> Снятие / установка </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service2" onChange={(event)=>{setWork2(event.target.value);}}/>
+                                        <input type="checkbox" id = "service2" value={"Техническая мойка"} onChange={(event)=>{setWork2(event.target.value);}}/>
                                         <label htmlFor="service2"  className="work_name_order"> Техническая мойка </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service3" onChange={(event)=>{setWork3(event.target.value);}}/>
+                                        <input type="checkbox" id = "service3" value={"Разборка"} onChange={(event)=>{setWork3(event.target.value);}}/>
                                         <label htmlFor="service3"  className="work_name_order"> Разборка </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service4" onChange={(event)=>{setWork4(event.target.value);}}/>
+                                        <input type="checkbox" id = "service4" value={"Сборка"} onChange={(event)=>{setWork4(event.target.value);}}/>
                                         <label htmlFor="service4"  className="work_name_order"> Сборка </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service5" onChange={(event)=>{setWork5(event.target.value);}}/>
+                                        <input type="checkbox" id = "service5" value={"Балансировка"} onChange={(event)=>{setWork5(event.target.value);}}/>
                                         <label htmlFor="service5"  className="work_name_order"> Балансировка </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service6" onChange={(event)=>{setWork6(event.target.value);}}/>
+                                        <input type="checkbox" id = "service6" value={"Проверка давления"} onChange={(event)=>{setWork6(event.target.value);}}/>
                                         <label htmlFor="service6"  className="work_name_order"> Проверка давления </label>
                                     </div>
                                     <div className="checkbox_components">
-                                        <input type="checkbox" id = "service7" onChange={(event)=>{setWork7(event.target.value);}}/>
+                                        <input type="checkbox" id = "service7" value={"Правка дисков"} onChange={(event)=>{setWork7(event.target.value);}}/>
                                         <label htmlFor="service7"  className="work_name_order"> Правка дисков </label>
                                     </div>
                                 </div>
@@ -426,8 +428,9 @@ function OrderPage(){
                                             <div className="work_style">{work6}</div>
                                             <div className="work_style">{work7}</div>
                                         </div>
-                                        <div className="subtitle_info_check">Размер колес:</div>
-                                        <div className="work_style">{currentRadius6}</div>
+                                        <div className="subtitle_info_check">Размер колес:
+                                            <div className="work_style">{currentRadius6}</div>
+                                        </div>
                                     </div>
                                 </div>
 

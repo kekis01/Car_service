@@ -1,0 +1,19 @@
+.table_style_status{
+    color: #365CFF;
+    font-weight: 600;
+}
+
+.order_button_table{
+    background-color: #fff;
+    height: 30px;
+    width: 140px;
+    font-size: 16px;
+    border: 2px solid #9EDCFF;
+    border-radius: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+.order_button_table:hover{
+    border:2px solid #365CFF;
+}
